@@ -105,7 +105,7 @@ supabase	0	Supabase	Information	Firm
 firebase	0	Firebase	Information	Firm
 posthog(?:.?ver=| JS v?)([\d.]+)	1	PostHog	Information	Certain
 sentry(?:.?version[":= ]+)([\d.]+)	1	Sentry	Information	Firm
-segment	0	Segment	Information	Firm
+analytics\.segment\.(com|io)|segment\.io/v[0-9]	0	Segment	Information	Firm
 Joomla! ([\d.]+)	1	Joomla!	Low	Certain
 Linux (\d+\.[a-z0-9\.\-_]+)	1	Linux	Low	Certain
 ([-\d.]+)amzn1.x86_64	1	Amazon Linux	Low	Certain
@@ -117,15 +117,15 @@ Oracle-iPlanet-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
 Oracle-Application-Server-([\d.]+.*)	1	Oracle-Application-Server	Low	Certain
 WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
 AIza[a-zA-Z0-9_-]{35}	0	Google API Key	High	Certain
-(sk|pk)_(live|test)_[a-zA-Z0-9]{24,}	0	Stripe API Key	High	Certain
+(sk|pk)_(live|test)_[a-zA-Z0-9]{24,48}(?![a-zA-Z0-9_])	0	Stripe API Key	High	Certain
 AKIA[A-Z0-9]{16}	0	AWS Access Key ID	High	Certain
 gh[pousr]_[A-Za-z0-9_]{36,}	0	GitHub Token	High	Certain
-xox[baprs]-[0-9a-zA-Z-]{10,}	0	Slack Token	High	Certain
-eyJ[a-zA-Z0-9_-]{10,}\.[a-zA-Z0-9_-]{10,}\.[a-zA-Z0-9_-]{10,}	0	JWT Token	Medium	Certain
-pub[a-zA-Z0-9]{32,}	0	Datadog/Segment Public Token	Information	Firm
+xox[baprs]-[0-9a-zA-Z]{10,48}-[0-9a-zA-Z]{10,48}	0	Slack Token	High	Certain
+eyJ[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,}(?![a-zA-Z0-9_-])	0	JWT Token	Medium	Certain
+pub[a-f0-9]{32}(?![a-zA-Z0-9])	0	Datadog/Segment Public Token	Information	Firm
 [a-zA-Z0-9_-]{20,}\.ingest\.sentry\.io	0	Sentry DSN	Low	Firm
 sq0[a-z]{3}-[a-zA-Z0-9_-]{22,43}	0	Square API Key	High	Certain
 SG\.[a-zA-Z0-9_-]{22}\.[a-zA-Z0-9_-]{43}	0	SendGrid API Key	High	Certain
 key-[a-zA-Z0-9]{32}	0	Mailgun API Key	High	Certain
-AC[a-zA-Z0-9]{32}	0	Twilio Account SID	Medium	Firm
-AP[a-zA-Z0-9]{32}	0	Twilio Auth Token	High	Firm
+AC[a-f0-9]{32}(?![a-zA-Z0-9])	0	Twilio Account SID	Medium	Certain
+AP[a-f0-9]{32}(?![a-zA-Z0-9])	0	Twilio Auth Token	High	Certain
