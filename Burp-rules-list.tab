@@ -1,23 +1,24 @@
-\$gwt_version\s?=\s?"([\d.]+)"	1	Google Web Toolkit (GWT)	Low	Certain
 Apache/([\d.]+(?: \([ \w]+\))?)	1	Apache	Low	Certain
 Apache-Coyote/([\d.]+)	1	Apache Coyote (Tomcat)	Low	Certain
 Apache Tomcat/([\d.]+)	1	Apache Tomcat	Low	Certain
 Artifactory/([\d.]+)	1	Artifactory	Low	Certain
 awselb/([\d.]+)	1	AWS Elastic Load Balancer	Low	Certain
 Caddy/?([\d.]+)	1	Caddy	Low	Certain
-cloudflare	0	Cloudflare	Low	Firm
-cloudfront	0	AWS CloudFront	Low	Firm
-Fastly	0	Fastly	Low	Firm
-AkamaiGHost	0	Akamai	Low	Firm
-Vercel	0	Vercel	Low	Firm
-Netlify	0	Netlify	Low	Firm
-Heroku	0	Heroku	Low	Firm
-fly.io	0	Fly.io	Low	Firm
-Varnish/([\d.]+)	1	Varnish Cache	Low	Certain
-([\d.]+) varnish	1	Varnish Cache	Low	Certain
+(?i)Server:\s*cloudflare	0	Cloudflare	Information	Firm
+(?i)Via:.*cloudflare	0	Cloudflare (Via)	Information	Firm
+(?i)Server:\s*cloudfront	0	AWS CloudFront	Information	Firm
+(?i)Via:.*cloudfront	0	AWS CloudFront (Via)	Information	Firm
+(?i)Server:\s*Fastly	0	Fastly	Information	Firm
+(?i)Server:\s*AkamaiGHost	0	Akamai	Information	Firm
+(?i)Server:\s*Vercel	0	Vercel	Information	Firm
+(?i)Server:\s*netlify	0	Netlify	Information	Firm
+x-heroku-queue-depth	0	Heroku	Information	Firm
+(?i)Server:.*fly\.io	0	Fly.io	Information	Firm
+Varnish/([\d.]+)	1	Varnish Cache (Server header)	Low	Certain
+([\d.]+) varnish	1	Varnish Cache (Via header)	Low	Certain
 squid/([\d.]+)	1	Squid Cache	Low	Certain
 envoy/([\d.]+)	1	Envoy	Low	Certain
-istio-envoy	0	Istio Envoy	Low	Firm
+(?i)Server:\s*istio-envoy	0	Istio Envoy	Low	Firm
 Traefik/?([\d.]+)	1	Traefik	Low	Certain
 kong/?([\d.]+)	1	Kong	Low	Certain
 APISIX/?([\d.]+)	1	Apache APISIX	Low	Certain
@@ -34,98 +35,53 @@ TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
 WEBrick/([\d.]+)	1	WEBrick	Low	Certain
 Werkzeug/?([\d.]+)	1	Werkzeug	Low	Certain
 gunicorn/([\d.]+)	1	Gunicorn	Low	Certain
-uvicorn	0	Uvicorn	Low	Firm
 hypercorn/?([\d.]+)	1	Hypercorn	Low	Certain
 daphne/?([\d.]+)	1	Daphne	Low	Certain
 aiohttp/?([\d.]+)	1	aiohttp	Low	Certain
 Jetty\s?\(?([a-z\d.]+(-SNAPSHOT)?)\)?	1	Jetty	Low	Certain
 JBoss-([\d.]+(?:GA)?)	1	JBoss	Low	Certain
 JBoss-EAP/([\d.]+)	1	JBoss Enterprise Application Platform	Low	Certain
-JBoss_([\d_]+)	1	JBoss	Low	Certain
-JBPAPP_([\d_]+(?:GA)?)	1	JBoss	Low	Certain
-JBoss\s?Web[/-]{1}([\d.]+(?:GA)?)	1	JBoss Webserver	Low	Certain
 WildFly/([\d.]+)	1	WildFly	Low	Certain
 Undertow/?([\d.]+)	1	Undertow	Low	Certain
 IBM_HTTP_Server/([\d.]+)	1	IBM HTTP Server	Low	Certain
 WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain
-ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Firm
-X-AspNet-Version: ([\d.]+)	1	ASP.Net	Low	Firm
-X-AspNetMvc-Version: ([\d.]+)	1	ASP.Net MVC Framework	Low	Certain
-Kestrel	0	ASP.Net Kestrel	Low	Firm
-Microsoft \.NET Framework Version:([\d.]+)	1	Microsoft .Net Framework	Low	Certain
-Microsoft \.NET Framework ([\d.]+)	1	Microsoft .Net Framework	Low	Certain
-MicrosoftSharePointTeamServices: ([\d.]+)	1	Microsoft SharePoint	Low	Certain
-X-OWA-Version: ([\d.]+)	1	Outlook Web Access	Low	Certain
+X-AspNet-Version:\s*([\d.]+)	1	ASP.Net	Low	Certain
+X-AspNetMvc-Version:\s*([\d.]+)	1	ASP.Net MVC Framework	Low	Certain
+(?i)Server:\s*Kestrel	0	ASP.Net Kestrel	Low	Firm
 PHP/([\d]+[\.]+(?:[-\w\d\.]+)?)	1	PHP	Low	Certain
 Python/([\d.]+)	1	Python	Low	Certain
 Ruby/([\d.]+(?:/\d{4}-\d{2}-\d{2})?)	1	Ruby	Low	Certain
-Perl/v([\d.]+)	1	Perl	Low	Certain
-\bjdk(\d[x\d._]+)	1	Java JDK	Low	Certain
 OpenSSL/([a-z\d.]+(-fips|-freebsd)?)	1	OpenSSL	Low	Certain
-((?i)Boa)/(\d+\.[\d.rc]+)	1	BOA Web Server	Low	Certain
 mod_ssl/([\d.]+)	1	mod_ssl	Low	Certain
-mod_perl/([\d.]+)	1	mod_perl	Low	Certain
-mod_jk/([\d.]+)	1	mod_jk	Low	Certain
-mod_fastcgi/([\d.]+)	1	mod_fastcgi Apache 2 module	Low	Certain
 Django/?([\d.]+)	1	Django	Low	Certain
 Flask/?([\d.]+)	1	Flask	Low	Certain
-Laravel/?([\d.]+)	1	Laravel	Low	Certain
-Symfony/?([\d.]+)	1	Symfony	Low	Certain
 Spring Boot/?([\d.]+)	1	Spring Boot	Low	Certain
-Quarkus/?([\d.]+)	1	Quarkus	Low	Certain
-Micronaut/?([\d.]+)	1	Micronaut	Low	Certain
-FastAPI	0	FastAPI	Information	Firm
-Express	0	Express	Information	Firm
-NestJS	0	NestJS	Information	Firm
-Next.js v?([\d.]+)	1	Next.js	Information	Certain
-next/static/	0	Next.js	Information	Firm
-Nuxt.js v?([\d.]+)	1	Nuxt.js	Information	Certain
-NUXT	0	Nuxt.js	Information	Firm
-SvelteKit	0	SvelteKit	Information	Firm
-Remix	0	Remix	Information	Firm
-Ember\.VERSION\s*=\s*["']([\w.]+)["']	1	Ember	Information	Certain
+Next\.js v?([\d.]+)	1	Next.js (version string)	Information	Certain
+x-nextjs-cache	0	Next.js (header)	Information	Firm
+Nuxt\.js v?([\d.]+)	1	Nuxt.js	Information	Certain
 http://errors\.angularjs\.org/([\d.]+)/	1	AngularJS	Information	Certain
 Angular v?([\d.]+)	1	Angular	Information	Certain
-Vue(?:.js)? v?([\d.]+)	1	Vue.js	Information	Certain
-React(?:DOM)?(?:.production.min)?.js[: ]?([\d.]+)?	1	React	Information	Firm
-jquery[/-]([\d-.]+)	1	jQuery	Information	Certain
-jQuery v([\d.]+)	1	jQuery	Information	Certain
-jQuery JavaScript Library v([\d.]+)	1	jQuery JavaScript Library	Information	Certain
+Vue(?:\.js)? v?([\d.]+)	1	Vue.js	Information	Certain
+react(?:\.version|Dom\.version)[=:\s"']+([0-9]+\.[0-9]+\.[0-9]+)	1	React	Information	Certain
+reactRouterVersion[=:\s"']+([0-9]+\.[0-9]+\.[0-9]+)	1	React Router	Information	Certain
+jquery[/-]([\d-.]+)(?:\.min)?\.js	1	jQuery (file reference)	Information	Certain
+jQuery v([\d.]+)	1	jQuery (version string)	Information	Certain
 jQuery UI ([\d.]+)	1	jQuery UI	Information	Certain
-bootstrap(?:.min)?.css[: ]?([\d.]+)	1	Bootstrap	Information	Certain
-graphql	0	GraphQL	Information	Firm
-Apollo Server	0	Apollo Server	Information	Firm
-Apollo Client	0	Apollo Client	Information	Firm
-grpc	0	gRPC	Information	Firm
-swagger-ui(?:/|.?version[":= ]+)([\d.]+)	1	Swagger UI	Information	Firm
-auth0	0	Auth0	Information	Firm
-okta	0	Okta	Information	Firm
-clerk(?:[-]js[_-]version=|/)([\d.]+)	1	Clerk	Information	Certain
-supabase	0	Supabase	Information	Firm
-firebase	0	Firebase	Information	Firm
+swagger-ui(?:/|.?version[":= ]+)([\d.]+)	1	Swagger UI	Information	Certain
+X-Powered-By:\s*Express	0	Express.js	Information	Firm
+X-Powered-By:\s*NestJS	0	NestJS	Information	Firm
 posthog(?:.?ver=| JS v?)([\d.]+)	1	PostHog	Information	Certain
-sentry(?:.?version[":= ]+)([\d.]+)	1	Sentry	Information	Firm
 analytics\.segment\.(com|io)|segment\.io/v[0-9]	0	Segment	Information	Firm
-Joomla! ([\d.]+)	1	Joomla!	Low	Certain
-Linux (\d+\.[a-z0-9\.\-_]+)	1	Linux	Low	Certain
-([-\d.]+)amzn1.x86_64	1	Amazon Linux	Low	Certain
-ARR/([\d.]+)	1	IIS Application Request Routing	Low	Certain
-Jersey: ([\d.]+)	1	Jersey RESTful Web Services Framework	Low	Certain
-Servlet[ /]([\d.]+)	1	Generic Java Servlet engine	Low	Certain
-JSP/([\d.]+)	1	Generic Java Servlet engine	Low	Certain
-Oracle-iPlanet-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
-Oracle-Application-Server-([\d.]+.*)	1	Oracle-Application-Server	Low	Certain
-WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
-AIza[a-zA-Z0-9_-]{35}	0	Google API Key	High	Certain
+AIza[a-zA-Z0-9_-]{35}(?![a-zA-Z0-9_-])	0	Google API Key	High	Certain
 (sk|pk)_(live|test)_[a-zA-Z0-9]{24,48}(?![a-zA-Z0-9_])	0	Stripe API Key	High	Certain
-AKIA[A-Z0-9]{16}	0	AWS Access Key ID	High	Certain
+AKIA[A-Z0-9]{16}(?![A-Z0-9])	0	AWS Access Key ID	High	Certain
 gh[pousr]_[A-Za-z0-9_]{36,}	0	GitHub Token	High	Certain
 xox[baprs]-[0-9a-zA-Z]{10,48}-[0-9a-zA-Z]{10,48}	0	Slack Token	High	Certain
-eyJ[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,}(?![a-zA-Z0-9_-])	0	JWT Token	Medium	Certain
-pub[a-f0-9]{32}(?![a-zA-Z0-9])	0	Datadog/Segment Public Token	Information	Firm
-[a-zA-Z0-9_-]{20,}\.ingest\.sentry\.io	0	Sentry DSN	Low	Firm
+pub[a-f0-9]{32}(?![a-zA-Z0-9])	0	Datadog Public Token	Information	Firm
+[a-zA-Z0-9]{32}@o[0-9]+\.ingest\.sentry\.io	0	Sentry DSN	Medium	Certain
 sq0[a-z]{3}-[a-zA-Z0-9_-]{22,43}	0	Square API Key	High	Certain
 SG\.[a-zA-Z0-9_-]{22}\.[a-zA-Z0-9_-]{43}	0	SendGrid API Key	High	Certain
-key-[a-zA-Z0-9]{32}	0	Mailgun API Key	High	Certain
 AC[a-f0-9]{32}(?![a-zA-Z0-9])	0	Twilio Account SID	Medium	Certain
-AP[a-f0-9]{32}(?![a-zA-Z0-9])	0	Twilio Auth Token	High	Certain
+AP[a-f0-9]{32}(?![a-zA-Z0-9])	0	Twilio Application SID	Medium	Certain
+phc_[a-zA-Z0-9]{40,}	0	PostHog Token	Information	Certain
+eyJ[a-zA-Z0-9_-]{20,}\.eyJ[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,}(?![a-zA-Z0-9_-])	0	JWT Token (Exposed)	Medium	Certain
